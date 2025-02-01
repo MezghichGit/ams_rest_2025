@@ -2,9 +2,11 @@ package com.sip.ams.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.sip.ams.entities.Provider;
 import com.sip.ams.repositories.ProviderRepository;
-
+@Service
 public class ProviderServiceImp implements ProviderService{
 
 	
