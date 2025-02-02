@@ -6,19 +6,19 @@ import org.springframework.stereotype.Service;
 
 import com.sip.ams.entities.Provider;
 import com.sip.ams.repositories.ProviderRepository;
-@Service
-public class ProviderServiceImp implements ProviderService{
 
-	
+@Service
+public class ProviderServiceImp implements ProviderService {
+
 	private final ProviderRepository providerRepository;
-	
+
 	public ProviderServiceImp(ProviderRepository providerRepository) {
 		this.providerRepository = providerRepository;
 	}
 
 	@Override
 	public List<Provider> listProviders() {
-		return (List<Provider>)this.providerRepository.findAll();
+		return (List<Provider>) this.providerRepository.findAll();
 	}
 
 	@Override
@@ -32,9 +32,10 @@ public class ProviderServiceImp implements ProviderService{
 	}
 
 	@Override
-	public Provider deleteProvider(long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteProvider(long id) {
+
+		this.providerRepository.deleteById(id);
+
 	}
 
 }

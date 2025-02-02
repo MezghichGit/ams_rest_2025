@@ -10,6 +10,6 @@ public interface ProviderService {
 	List<Provider>listProviders();
 	Provider getProvider(long id);
 	Provider saveProvider(Provider provider);
-	Provider deleteProvider(long id);
+	void deleteProvider(long id);
 
 }
