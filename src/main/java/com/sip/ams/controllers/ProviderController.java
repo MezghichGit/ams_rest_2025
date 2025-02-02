@@ -3,6 +3,7 @@ package com.sip.ams.controllers;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sip.ams.entities.Provider;
+import com.sip.ams.exceptions.ResourceNotFoundException;
 import com.sip.ams.services.ProviderService;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -54,6 +56,7 @@ public class ProviderController {
 		return this.providerService.getProvider(id);
 	}
 
+	/*
 	@DeleteMapping("/{id}")
 	synchronized boolean deleteProviderById(@PathVariable("id") long id) {
 		boolean deleted = false;
@@ -73,7 +76,16 @@ public class ProviderController {
 		}
 		return deleted;
 
-	}
+	}*/
+	
+    @DeleteMapping("/{providerId}")
+    public ResponseEntity<?> deleteProvider(@PathVariable Long providerId) {
+        return this.providerService.findProviderById(providerId).map(provider -> {
+        	this.providerService.deleteProvider(providerId);
+            return ResponseEntity.ok().build();
+        }).orElseThrow(() -> new ResourceNotFoundException("ProviderId " + providerId + " not found"));
+    }
+
 	
 	@PutMapping("/")
 	Provider editProvider(@RequestBody Provider provider) {

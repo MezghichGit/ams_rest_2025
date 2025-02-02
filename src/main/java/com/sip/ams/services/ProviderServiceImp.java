@@ -1,6 +1,7 @@
 package com.sip.ams.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,11 @@ public class ProviderServiceImp implements ProviderService {
 
 		this.providerRepository.deleteById(id);
 
+	}
+
+	@Override
+	public Optional<Provider> findProviderById(long id) {
+		return this.providerRepository.findById(id);
 	}
 
 }
