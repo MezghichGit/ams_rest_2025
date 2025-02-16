@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import java.time.LocalDateTime;
 import java.util.logging.*;
 @RestController
 @RequestMapping("/providers")
+@CrossOrigin("*")
 public class ProviderController {
 
 	private final ProviderService providerService;
