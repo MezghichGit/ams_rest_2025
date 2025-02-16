@@ -1,5 +1,6 @@
 package com.sip.ams.controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import com.sip.ams.entities.Article;
 import com.sip.ams.services.ArticleService;
 @RestController
 @RequestMapping({"/articles","/home"})
+@CrossOrigin("*")
 public class ArticleController {
 
 	private final ArticleService articleService;
