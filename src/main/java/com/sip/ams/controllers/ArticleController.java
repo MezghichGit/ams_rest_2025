@@ -12,7 +12,7 @@ import com.sip.ams.entities.Article;
 import com.sip.ams.services.ArticleService;
 @RestController
 @RequestMapping({"/articles","/home"})
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class ArticleController {
 
 	private final ArticleService articleService;

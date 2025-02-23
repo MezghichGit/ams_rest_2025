@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 import java.util.logging.*;
 @RestController
 @RequestMapping("/providers")
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class ProviderController {
 
 	private final ProviderService providerService;
