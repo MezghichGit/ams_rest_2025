@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sip.ams.entities.Provider;
 import com.sip.ams.exceptions.ResourceNotFoundException;
@@ -48,9 +50,20 @@ public class ProviderController {
 		return this.providerService.listProviders();
 	}
 
-	@PostMapping("/")
+	/*@PostMapping("/")
 	Provider addProvider(@RequestBody Provider provider) {
 		return this.providerService.saveProvider(provider);
+	}*/
+	
+	@PostMapping("/")
+	public Provider create(@RequestParam(name="imageFile") MultipartFile file,
+			@RequestParam("name") String name,
+			@RequestParam("email") String email, 
+			@RequestParam("address") String address
+			//@RequestParam("imageName") String imageName
+			) throws IOException
+	{
+		return providerService.saveProvider(file,name,email,address);
 	}
 
 	@GetMapping("/{id}")
@@ -89,9 +102,9 @@ public class ProviderController {
     }
 
 	
-	@PutMapping("/")
+	/*@PutMapping("/")
 	Provider editProvider(@RequestBody Provider provider) {
 		return this.providerService.saveProvider(provider);
-	}
+	}*/
 
 }

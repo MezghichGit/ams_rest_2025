@@ -49,7 +49,7 @@ public class SecurityConfiguration {
 	    public CorsConfigurationSource corsConfigurationSource() {
 	        CorsConfiguration configuration = new CorsConfiguration();
 	        
-	        configuration.setAllowedOrigins(Arrays.asList("http://localhost:63645")); // URL Angular exacte
+	        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200")); // URL Angular exacte
 	        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 	        configuration.setAllowedHeaders(Arrays.asList("*"));
 	        configuration.setAllowCredentials(true);

@@ -25,7 +25,19 @@ public class Provider {
     @NotBlank(message = "Email is mandatory")
     @Column(name = "email")
     private String email;
+    
+    @NotBlank(message = "Logo is mandatory")
+    @Column(name = "logo")
+    private String logo;
 
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
 
 	public String getName() {
 		return name;
@@ -59,18 +71,38 @@ public class Provider {
 		this.id = id;
 	}
 
+	
+	
 	@Override
 	public String toString() {
-		return "Provider [id=" + id + ", name=" + name + ", address=" + address + ", email=" + email + "]";
+		return "Provider [id=" + id + ", name=" + name + ", address=" + address + ", email=" + email + ", logo=" + logo
+				+ "]";
 	}
 
-	public Provider(long id, String name, String address, String email) {
+	public Provider(long id, @NotBlank(message = "Name is mandatory") String name,
+			@NotBlank(message = "Address is mandatory") String address,
+			@NotBlank(message = "Email is mandatory") String email,
+			@NotBlank(message = "Logo is mandatory") String logo) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.email = email;
+		this.logo = logo;
 	}
+	
+	public Provider(@NotBlank(message = "Name is mandatory") String name,
+			@NotBlank(message = "Address is mandatory") String address,
+			@NotBlank(message = "Email is mandatory") String email,
+			@NotBlank(message = "Logo is mandatory") String logo) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.email = email;
+		this.logo = logo;
+	}
+
 	public Provider() {
 	}
 
