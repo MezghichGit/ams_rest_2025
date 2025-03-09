@@ -6,6 +6,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -72,7 +75,12 @@ public class AuthController {
     // Create new user's account
     User user = new User(signUpRequest.getUsername(), 
                signUpRequest.getEmail(),
-               encoder.encode(signUpRequest.getPassword()));
+               encoder.encode(signUpRequest.getPassword()), 
+               signUpRequest.getFirstName(), 
+               signUpRequest.getLastName(),
+               signUpRequest.getCompanyName(),
+               signUpRequest.getPhoneNumber() , 
+               signUpRequest.getCountry());
 
     Set<String> strRoles = signUpRequest.getRole();  // Ce qu'on récupère du Request
     

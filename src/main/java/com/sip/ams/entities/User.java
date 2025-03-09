@@ -26,10 +26,57 @@ public class User {
 	@Size(max = 50)
 	@Email
 	private String email;
+	
+	
 
 	@NotBlank
 	@Size(max = 120)
 	private String password;
+	
+	
+	@NotBlank
+	@Size(max = 50)
+	private String firstName;
+	
+	@NotBlank
+	@Size(max = 50)
+	private String lastName;
+	
+	@NotBlank
+	@Size(max = 50)
+	private String companyName;
+	
+	@NotBlank
+	@Size(max = 50)
+	private String phoneNumber;
+	
+	@NotBlank
+	@Size(max = 50)
+	private String country;
+	
+
+
+	public User(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email,
+			@NotBlank @Size(max = 120) String password, @NotBlank @Size(max = 50) String firstName,
+			@NotBlank @Size(max = 50) String lastName, @NotBlank @Size(max = 50) String companyName,
+			@NotBlank @Size(max = 50) String phoneNumber, @NotBlank @Size(max = 50) String country) {
+		super();
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.companyName = companyName;
+		this.phoneNumber = phoneNumber;
+		this.country = country;
+	}
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -75,12 +122,38 @@ public class User {
 		this.roles = roles;
 	}
 
-	public User() {
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public User(String username, String email, String password) {
-		this.username = username;
-		this.email = email;
-		this.password = password;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public User() {
 	}
 }

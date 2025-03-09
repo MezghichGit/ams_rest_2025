@@ -47,6 +47,7 @@ public class ProviderController {
 
 	@GetMapping("/")
 	List<Provider> getAllProviders() {
+		System.out.println(this.providerService.listProviders());
 		return this.providerService.listProviders();
 	}
 
